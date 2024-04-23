@@ -1,14 +1,11 @@
-import './styles/App.css';
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Page from "./routes/Page";
+import {BrowserRouter as Router} from "react-router-dom";
+import {AppRoutes} from "./routes";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-gray-300">
         <Router>
-            <Routes>
-                <Route path="*" element={<Page />}/>
-            </Routes>
+            <AppRoutes />
         </Router>
     </div>
   );

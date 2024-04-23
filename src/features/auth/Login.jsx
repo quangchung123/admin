@@ -1,40 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styles from './FormLogin.module.scss';
+import { useForm } from "react-hook-form";
+import InputField from "../../components/Elements/InputField";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { schemaLogin } from "../../config/validate";
+import { useGetUserLoginQuery } from "../../services/login";
+import { useNavigate } from "react-router-dom";
+import {handleSaveDataToStorage} from "../../utils/help";
+import {LOCAL_STORAGE_KEY} from "../../config/constant";
 
-const Login = () => {
+const Login = ({children}) => {
+    const navigate = useNavigate();
+    const [loginError, setLoginError] = useState(false);
+    const {
+        handleSubmit,
+        control,
+        formState: { errors }
+    } = useForm({
+        resolver: zodResolver(schemaLogin)
+    });
+    const { data } = useGetUserLoginQuery();
+    const onSubmit = (payload) => {
+        const isExists = data.find((item) => item.username === payload.username && item.password === payload.password);
+        if (isExists) {
+            handleSaveDataToStorage(LOCAL_STORAGE_KEY.ACCOUNT_USER, payload);
+            navigate("/admin");
+            console.log("____________")
+        } else {
+            setLoginError(true);
+        }
+    };
+
     return (
-        <div className="flex justify-center items-center h-screen">
-            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-                        Tên đăng nhập
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username"
+        <div className={styles.container}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className={styles.formItem}>
+                    <p>Login</p>
+                </div>
+                <div>
+                    <label>Tên đăng nhập</label>
+                    <InputField
                         type="text"
                         placeholder="Tên đăng nhập"
+                        name="username"
+                        control={control}
+                        errors={errors}
                     />
                 </div>
-                <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                        Mật khẩu
-                    </label>
-                    <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="password"
+                <div>
+                    <label htmlFor="password">Mật khẩu</label>
+                    <InputField
                         type="password"
                         placeholder="Mật khẩu"
+                        name="password"
+                        control={control}
+                        errors={errors}
                     />
                 </div>
-                <div className="flex items-center justify-center">
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        type="button"
-                    >
-                        Đăng nhập
-                    </button>
+                {loginError && <p className={styles.error}>Tên đăng nhập hoặc mật khẩu không đúng</p>}
+                <div className={styles.formItem}>
+                    <button type="submit">Đăng nhập</button>
                 </div>
             </form>
+            {children}
         </div>
     );
 };
