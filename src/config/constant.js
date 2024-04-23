@@ -1,3 +1,8 @@
 export const LOCAL_STORAGE_KEY = {
-    ACCOUNT_USER: 'accountUser'
+    PERSIST_STORE: 'persist:root'
 };
+
+export const ROUTER_INIT = {
+    LOGIN: "/login",
+    ADMIN: "/admin"
+}

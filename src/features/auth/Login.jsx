@@ -6,10 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { schemaLogin } from "../../config/validate";
 import { useGetUserLoginQuery } from "../../services/login";
 import { useNavigate } from "react-router-dom";
-import {handleSaveDataToStorage} from "../../utils/help";
-import {LOCAL_STORAGE_KEY} from "../../config/constant";
+// import {handleSaveDataToStorage} from "../../utils/help";
+// import {LOCAL_STORAGE_KEY} from "../../config/constant";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../store/action/userAccountSlice";
 
 const Login = ({children}) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState(false);
     const {
@@ -23,9 +26,10 @@ const Login = ({children}) => {
     const onSubmit = (payload) => {
         const isExists = data.find((item) => item.username === payload.username && item.password === payload.password);
         if (isExists) {
-            handleSaveDataToStorage(LOCAL_STORAGE_KEY.ACCOUNT_USER, payload);
+            dispatch(setUser({user: payload}))
+            // handleSaveDataToStorage(LOCAL_STORAGE_KEY.ACCOUNT_USER, payload);
             navigate("/admin");
-            console.log("____________")
+            // console.log("____________")
         } else {
             setLoginError(true);
         }

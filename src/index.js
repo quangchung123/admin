@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './styles/common/_tailwind.scss'
 import { Provider } from 'react-redux';
-import {store} from "./store/makeStore";
+import {persistor, store} from "./store/makeStore";
+import {PersistGate} from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        <App />
+        <PersistGate persistor={persistor}>
+            <App />
+        </PersistGate>
     </Provider>
 );
 
