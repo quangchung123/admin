@@ -3,11 +3,9 @@ import Content from "../../container/Content";
 
 const Test = () => {
     return (
-        <Content>
             <div>
                 Home
             </div>
-        </Content>
     );
 };
 

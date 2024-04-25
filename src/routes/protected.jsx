@@ -11,9 +11,9 @@ const ProtectedRoute = () => {
   const storedUser = handleLoadDataFromStorage(LOCAL_STORAGE_KEY.PERSIST_STORE).user;
   const parsedPersistedData = JSON.parse(storedUser);
   return user || parsedPersistedData ? (
-    <DashBoard>
+    <MainLayout>
       <Outlet />
-    </DashBoard>
+    </MainLayout>
   ) : (
     <Navigate to={ROUTER_INIT.LOGIN} />
   );
