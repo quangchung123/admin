@@ -3,6 +3,9 @@ export const LOCAL_STORAGE_KEY = {
 };
 
 export const ROUTER_INIT = {
-    LOGIN: "/login",
-    ADMIN: "/admin"
+    LOGIN: "login",
+    ADMIN: "admin"
+}
+export const ROUTER_ADMIN = {
+    DASHBOARD: "dashboard",
 }

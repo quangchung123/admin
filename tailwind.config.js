@@ -4,12 +4,14 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'customCol': '219px minmax(0, 1fr)',
+        'customCol': '259px minmax(0, 1fr)',
 
       },
       colors:{
         'primary': '#1cb803',
-        'second': '#FF0000'
+        'second': '#FF0000',
+        'accent': '#e9ecef',
+        'icon': '#adb5bd',
       }
     },
   },

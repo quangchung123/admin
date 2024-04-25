@@ -1,22 +1,30 @@
+import { Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { handleLoadDataFromStorage } from "../utils/help";
+import { LOCAL_STORAGE_KEY, ROUTER_ADMIN, ROUTER_INIT } from "../config/constant";
+import DashBoard from "../features/admin/DashBoard";
 import Test from "../features/admin/Test";
-import {Navigate} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {handleLoadDataFromStorage} from "../utils/help";
-import {LOCAL_STORAGE_KEY, ROUTER_INIT} from "../config/constant";
+import MainLayout from "../container/MainLayout";
 
 const ProtectedRoute = () => {
-    const user = useSelector((state) => state.userAccount.user);
-    const storedUser = handleLoadDataFromStorage(LOCAL_STORAGE_KEY.PERSIST_STORE).user;
-    const parsedPersistedData = JSON.parse(storedUser);
-    return user || parsedPersistedData ? <Test /> : <Navigate to={ROUTER_INIT.LOGIN} />;
-}
-export const protectedRoutes = [
-    {
-        path: ROUTER_INIT.ADMIN,
-        element: <ProtectedRoute />,
-        // children: [
-        //     { path: "admin", element: <Test /> }
-        // ]
-    }
-];
+  const user = useSelector((state) => state.userAccount.user);
+  const storedUser = handleLoadDataFromStorage(LOCAL_STORAGE_KEY.PERSIST_STORE).user;
+  const parsedPersistedData = JSON.parse(storedUser);
+  return user || parsedPersistedData ? (
+    <DashBoard>
+      <Outlet />
+    </DashBoard>
+  ) : (
+    <Navigate to={ROUTER_INIT.LOGIN} />
+  );
+};
 
+export const protectedRoutes = [
+  {
+    path: ROUTER_INIT.ADMIN,
+    element: <ProtectedRoute />,
+    children: [
+      { path: 'product', element: <Test /> }
+    ]
+  }
+];
