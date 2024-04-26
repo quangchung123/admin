@@ -35,3 +35,12 @@ export const sideBarOptions = [
         children: []
     }
 ]
+
+export const columnProduct = [
+    {key: 'id', label: '#'},
+    {key: 'image', label: 'Image'},
+    {key: 'title', label: 'Title'},
+    {key: 'count', label: 'Count'},
+    {key: 'description', label: 'Description'},
+    {key: 'action', label: 'Action'}
+]

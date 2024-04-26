@@ -8,4 +8,5 @@ export const ROUTER_INIT = {
 }
 export const ROUTER_ADMIN = {
     DASHBOARD: "dashboard",
+    PRODUCT: "product"
 }

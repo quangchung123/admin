@@ -12,6 +12,7 @@ module.exports = {
         'second': '#FF0000',
         'accent': '#e9ecef',
         'icon': '#adb5bd',
+        'content': '#f8f9fa'
       }
     },
   },

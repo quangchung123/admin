@@ -1,5 +1,6 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+import {createApi} from "@reduxjs/toolkit/query/react";
 import {customBaseQuery} from "../lib/customBaseQuery";
+import {END_POINT_LOGIN} from "../config/api/endPoint";
 
 export const loginApi = createApi({
     reducerPath: 'loginApi',
@@ -8,7 +9,7 @@ export const loginApi = createApi({
         getUserLogin: builder.query({
             query(body) {
                 return {
-                    url: "8f9e0aa3790d4747a95ef6edada729c2/login",
+                    url: `${END_POINT_LOGIN}/login`,
                     method: "GET",
                     body
                 }

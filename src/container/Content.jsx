@@ -23,10 +23,10 @@ const Content = ({children}) => {
                 </div>
             </aside>
             <div className="col-span-1">
-                <div className="h-[10%] bg-white">
+                <div className="h-[75px] bg-white border">
                     <Header />
                 </div>
-                <div className="h-[90%]">
+                <div className="h-[100vh - 75px] bg-content">
                     {children}
                 </div>
             </div>

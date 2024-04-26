@@ -1,9 +1,9 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom"; // Thêm Outlet để render route con
 import { useSelector } from "react-redux";
 import { handleLoadDataFromStorage } from "../utils/help";
-import { LOCAL_STORAGE_KEY, ROUTER_ADMIN, ROUTER_INIT } from "../config/constant";
+import { LOCAL_STORAGE_KEY, ROUTER_INIT } from "../config/constant";
 import DashBoard from "../features/admin/DashBoard";
-import Test from "../features/admin/Test";
+import Product from "../features/admin/Product";
 import MainLayout from "../container/MainLayout";
 
 const ProtectedRoute = () => {
@@ -13,10 +13,7 @@ const ProtectedRoute = () => {
   return user || parsedPersistedData ? (
     <MainLayout>
       <Outlet />
-    </MainLayout>
-  ) : (
-    <Navigate to={ROUTER_INIT.LOGIN} />
-  );
+    </MainLayout> ): (<Navigate to={ROUTER_INIT.LOGIN} />);
 };
 
 export const protectedRoutes = [
@@ -24,7 +21,7 @@ export const protectedRoutes = [
     path: ROUTER_INIT.ADMIN,
     element: <ProtectedRoute />,
     children: [
-      { path: 'product', element: <Test /> }
+      { path: "product", element: <Product /> }
     ]
   }
 ];
