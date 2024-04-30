@@ -25,7 +25,6 @@ const User = () => {
 				setDataUserTitle(dataFiltered);
 		}, [tabSelected, data, valueInput]);
 		const handleUpdateRow = (index) => {
-				console.log(index)
 				const dataSelected = data.find((dataRow) => dataRow._id === index);
 				const dataSelectedAddId = {
 						...dataSelected,
