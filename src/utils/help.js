@@ -20,3 +20,10 @@ export const handleLoadDataFromStorage = (key) => {
         console.log('error', err)
     }
 }
+
+export const  getDataOnPage = (currentPage, dataTable, recordsPerPage) => {
+    //handle show list data on each Page
+    const firstIndex = (currentPage - 1) * recordsPerPage;
+    const lastIndex = firstIndex + recordsPerPage;
+    return dataTable?.slice(firstIndex, lastIndex);
+}

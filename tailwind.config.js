@@ -5,10 +5,10 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         'customCol': '259px minmax(0, 1fr)',
-
+        'hiddenCol': '65px minmax(0, 1fr)'
       },
       colors:{
-        'primary': '#1cb803',
+        'primary': '#4fa607',
         'second': '#FF0000',
         'accent': '#e9ecef',
         'icon': '#adb5bd',
@@ -17,5 +17,6 @@ module.exports = {
     },
   },
   plugins: [],
+  darkMode: "class"
 }
 

@@ -37,10 +37,69 @@ export const sideBarOptions = [
 ]
 
 export const columnProduct = [
-    {key: 'id', label: '#'},
+    {key: '_id', label: '#'},
     {key: 'image', label: 'Image'},
-    {key: 'title', label: 'Title'},
+    {key: 'name', label: 'Name'},
+    {key: 'price', label: 'Price'},
     {key: 'count', label: 'Count'},
     {key: 'description', label: 'Description'},
     {key: 'action', label: 'Action'}
 ]
+export const columnCategories = [
+    {key: '_id', label: '#'},
+    {key: 'title', label: 'Title'},
+    {key: 'description', label: 'Description'},
+    {key: 'action', label: 'Action'}
+]
+export const columnUser = [
+    {key: '_id', label: '#'},
+    {key: 'name', label: 'Name'},
+    {key: 'username', label: 'Username'},
+    {key: 'password', label: 'Password'},
+    {key: 'action', label: 'Action'}
+]
+
+export const columnDetailProduct = [
+    {key: '_id', label: '#'},
+    {key: 'image', label: 'Image'},
+    {key: 'name', label: 'Name'},
+    {key: 'price', label: 'Price'},
+    {key: 'count', label: 'Count'},
+    {key: 'description', label: 'Description'},
+    // {key: 'rate', Label: 'Rate'},
+    // {key: 'comment', Label: 'Comment'},
+]
+
+export const tabsUser = [
+    {key: 'Admin', label: 'Admin'},
+    {key: 'Customer', label: 'Customer'},
+]
+
+export const titleNameList = [
+    {
+        title: 'Admin'
+    },
+    {
+        title: 'Customer'
+    }
+]
+
+export const initStateProduct = {
+    name: "",
+    price: "",
+    count: "",
+    description: "",
+    image: "",
+    categories: ""
+}
+
+export const initStateCategory = {
+    title: "",
+    description: "",
+}
+
+export const initStateUser = {
+    name: "",
+    username: "",
+    password: ""
+}

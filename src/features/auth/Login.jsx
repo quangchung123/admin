@@ -4,10 +4,11 @@ import { useForm } from "react-hook-form";
 import InputField from "../../components/Elements/Input/InputField";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { schemaLogin } from "../../config/validate";
-import { useGetUserLoginQuery } from "../../services/login";
+import { useGetListUserQuery } from "../../services/user";
 import { useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setUser} from "../../store/action/userAccountSlice";
+import {ROUTER_INIT} from "../../config/constant";
 
 const Login = ({children}) => {
     const dispatch = useDispatch();
@@ -20,14 +21,16 @@ const Login = ({children}) => {
     } = useForm({
         resolver: zodResolver(schemaLogin)
     });
-    const { data } = useGetUserLoginQuery();
+    const { data } = useGetListUserQuery();
     const onSubmit = (payload) => {
-        const isExists = data.find((item) => item.username === payload.username && item.password === payload.password);
+        const dataPayload = {
+            ...payload,
+            title: 'Admin'
+        }
+        const isExists = data.find((item) => item.username === dataPayload.username && item.password === dataPayload.password && item.title === dataPayload.title);
         if (isExists) {
             dispatch(setUser({user: payload}))
-            // handleSaveDataToStorage(LOCAL_STORAGE_KEY.ACCOUNT_USER, payload);
-            navigate("/admin");
-            // console.log("____________")
+            navigate(ROUTER_INIT.ADMIN);
         } else {
             setLoginError(true);
         }
@@ -47,6 +50,7 @@ const Login = ({children}) => {
                         name="username"
                         control={control}
                         errors={errors}
+                        inputType={"text"}
                     />
                 </div>
                 <div>
@@ -57,6 +61,7 @@ const Login = ({children}) => {
                         name="password"
                         control={control}
                         errors={errors}
+                        inputType={"text"}
                     />
                 </div>
                 {loginError && <p className={styles.error}>Tên đăng nhập hoặc mật khẩu không đúng</p>}

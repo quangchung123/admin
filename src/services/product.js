@@ -1,6 +1,6 @@
 import {createApi} from "@reduxjs/toolkit/query/react";
 import {customBaseQuery} from "../lib/customBaseQuery";
-import {END_POINT_PRODUCT} from "../config/api/endPoint";
+import {END_POINT_PRODUCT} from "../config/api/endpoint";
 
 export const productApi = createApi({
 		reducerPath: "productApi",
@@ -35,6 +35,25 @@ export const productApi = createApi({
 								}
 						},
 						invalidatesTags: ['product']
+				}),
+				updateProduct: builder.mutation({
+						query(body) {
+								const {_id, ...payload} = body
+								return {
+										url: `${END_POINT_PRODUCT}/product/${_id}`,
+										method: 'PUT',
+										body: payload
+								}
+						},
+						invalidatesTags: ['product']
+				}),
+				getDetailProduct: builder.query({
+						query(id) {
+								return {
+										url: `${END_POINT_PRODUCT}/product/${id}`,
+										method: 'GET'
+								}
+						}
 				})
 		})
 });
@@ -42,5 +61,7 @@ export const productApi = createApi({
 export const {
 		useGetListProductQuery,
 		useCreateNewProductMutation,
-		useDeleteProductMutation
+		useDeleteProductMutation,
+		useUpdateProductMutation,
+		useGetDetailProductQuery
 } = productApi;
