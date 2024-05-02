@@ -54,7 +54,7 @@ export const columnCategories = [
 export const columnUser = [
     {key: '_id', label: '#'},
     {key: 'name', label: 'Name'},
-    {key: 'username', label: 'Username'},
+    {key: 'email', label: 'Email'},
     {key: 'password', label: 'Password'},
     {key: 'action', label: 'Action'}
 ]

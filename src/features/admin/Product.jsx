@@ -13,6 +13,7 @@ import InputSearch from "../../components/Elements/Search/InputSearch";
 
 const Product = () => {
 		const { data: productList } = useGetListProductQuery();
+		console.log(productList)
 		const { data: categoryList } = useGetListCategoriesQuery();
 		const { isShowing, toggle } = useModal();
 		const [deleteProduct] = useDeleteProductMutation();

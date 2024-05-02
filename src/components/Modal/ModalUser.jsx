@@ -55,9 +55,9 @@ const ModalUser = ({ isShowing, hide, rowData, isCreating }) => {
 						<FormField
 								control={control}
 								errors={errors}
-								name={"username"}
-								placeholder={"Enter Username"}
-								label={"Username"}
+								name={"email"}
+								placeholder={"Enter Email"}
+								label={"Email"}
 						/>
 						<FormField
 								control={control}

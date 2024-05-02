@@ -27,7 +27,7 @@ const Login = ({children}) => {
             ...payload,
             title: 'Admin'
         }
-        const isExists = data.find((item) => item.username === dataPayload.username && item.password === dataPayload.password && item.title === dataPayload.title);
+        const isExists = data.find((item) => item.email === dataPayload.email && item.password === dataPayload.password && item.title === dataPayload.title);
         if (isExists) {
             dispatch(setUser({user: payload}))
             navigate(ROUTER_INIT.ADMIN);
@@ -43,11 +43,11 @@ const Login = ({children}) => {
                     <p>Login</p>
                 </div>
                 <div>
-                    <label>Tên đăng nhập</label>
+                    <label>Email</label>
                     <InputField
                         type="text"
-                        placeholder="Tên đăng nhập"
-                        name="username"
+                        placeholder="Email"
+                        name="email"
                         control={control}
                         errors={errors}
                         inputType={"text"}
