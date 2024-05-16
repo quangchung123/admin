@@ -10,7 +10,9 @@ export const ROUTER_ADMIN = {
     DASHBOARD: "",
     PRODUCT: "product",
     CATEGORY: "categories",
-    USER: "users"
+    USER: "users",
+    ORDER: "order"
 }
+export const LIST_PRODUCT_NAME = 'productName';
 export const CURRENT_PAGE = 1;
 export const RECORD_INIT = 3;

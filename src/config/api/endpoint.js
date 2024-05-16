@@ -1,4 +1,4 @@
-export const END_POINT_PRODUCT = "8da124a26fde44b1b0a3710dc54496d7";
-export const END_POINT_CATEGORIES = "3ec2b26ce89440f7b6fb329fc6e159ed";
-export const END_POINT_USER = "e15c2bad2a5a4f3090b71ef7969bed5e";
-
+export const END_POINT_PRODUCT = "56b03f9e4e454a35938425c0302921f5";
+export const END_POINT_CATEGORIES = "eb6cb67e83cc415ca19f3777af07bbd4";
+export const END_POINT_USER = "d60c0c2faf5346579619f0bb2e26b76d";
+export const END_POINT_ORDER = "e2e4584fda044a9b9ea5d5050784ef00";

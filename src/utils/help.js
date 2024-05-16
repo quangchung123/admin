@@ -25,5 +25,5 @@ export const  getDataOnPage = (currentPage, dataTable, recordsPerPage) => {
     //handle show list data on each Page
     const firstIndex = (currentPage - 1) * recordsPerPage;
     const lastIndex = firstIndex + recordsPerPage;
-    return dataTable?.slice(firstIndex, lastIndex);
+    return dataTable?.slice(firstIndex, lastIndex).map((item, index) => ({...item, index: index + 1}));
 }

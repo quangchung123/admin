@@ -1,3 +1,5 @@
+import {LIST_PRODUCT_NAME} from "./constant";
+
 export const sideBarOptions = [
     {
         key: "dashboard",
@@ -37,7 +39,7 @@ export const sideBarOptions = [
 ]
 
 export const columnProduct = [
-    {key: '_id', label: '#'},
+    {key: 'index', label: '#'},
     {key: 'image', label: 'Image'},
     {key: 'name', label: 'Name'},
     {key: 'price', label: 'Price'},
@@ -46,13 +48,23 @@ export const columnProduct = [
     {key: 'action', label: 'Action'}
 ]
 export const columnCategories = [
-    {key: '_id', label: '#'},
+    {key: 'index', label: '#'},
     {key: 'title', label: 'Title'},
     {key: 'description', label: 'Description'},
     {key: 'action', label: 'Action'}
 ]
+
+export const columnOrder = [
+    {key: 'index', label: '#'},
+    {key: LIST_PRODUCT_NAME, label: 'Name'},
+    {key: 'email', label: 'Email'},
+    {key: 'payment', label: 'Payment'},
+    {key: 'status', label: 'Status'},
+    {key: 'totalPrice', label: 'Total'},
+    {key: 'action', label: 'Action'}
+]
 export const columnUser = [
-    {key: '_id', label: '#'},
+    {key: 'index', label: '#'},
     {key: 'name', label: 'Name'},
     {key: 'email', label: 'Email'},
     {key: 'password', label: 'Password'},
@@ -60,7 +72,6 @@ export const columnUser = [
 ]
 
 export const columnDetailProduct = [
-    {key: '_id', label: '#'},
     {key: 'image', label: 'Image'},
     {key: 'name', label: 'Name'},
     {key: 'price', label: 'Price'},
@@ -103,3 +114,8 @@ export const initStateUser = {
     username: "",
     password: ""
 }
+export const tabsOrder = [
+    { key: 'Đang xử lý', label: 'Đang xử lý' },
+    { key: 'Đang vận chuyển', label: 'Đang vận chuyển' },
+    { key: 'Hoàn thành', label: 'Hoàn thành' },
+]

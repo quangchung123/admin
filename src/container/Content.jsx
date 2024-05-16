@@ -5,6 +5,8 @@ import Sidebar from "./Sidebar";
 import logo from "../assets/image/logo.png";
 import useModal from "../hooks/useModal";
 import MyButton from "../components/Elements/Button/MyButton";
+import {Link} from "react-router-dom";
+import {ROUTER_ADMIN, ROUTER_INIT} from "../config/constant";
 
 const Content = ({children}) => {
     const {isShowing, toggle} = useModal();
@@ -13,9 +15,11 @@ const Content = ({children}) => {
             <aside className="col-span-1 min-h-screen dark:bg-[#0f172a] dark:border-none border-r bg-white">
                 <div className="">
                     <div className="flex justify-center items-center px-2 py-4 ">
-                        <a href="/admin" className="mr-3.5">
-                            <img src={logo} alt="logo" className={isShowing? "w-0":"w-full"}/>
-                        </a>
+                        <Link to={ROUTER_ADMIN.DASHBOARD}>
+                            <div className="mr-3.5">
+                                <img src={logo} alt="logo" className={isShowing? "w-0":"w-full"}/>
+                            </div>
+                        </Link>
                         <MyButton styleModify={`hover:bg-accent dark:hover:bg-gray-800 p-2 rounded ${isShowing ? '-ml-4' : 'ml-4'}`} onClick={toggle}>
                             <i className="bi bi-list text-3xl dark:text-icon"></i>
                         </MyButton>

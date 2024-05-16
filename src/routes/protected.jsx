@@ -8,6 +8,7 @@ import MainLayout from "../container/MainLayout";
 import Categories from "../features/admin/Categories";
 import User from "../features/admin/User";
 import ProductDetail from "../features/admin/ProductDetail";
+import Order from "../features/admin/Order";
 
 const ProtectedRoute = () => {
   const user = useSelector((state) => state.userAccount.user);
@@ -29,7 +30,8 @@ export const protectedRoutes = [
       { path: ROUTER_ADMIN.PRODUCT, element: <Product /> },
       { path: `${ROUTER_ADMIN.PRODUCT}/:productId`, element: <ProductDetail /> },
       { path: ROUTER_ADMIN.CATEGORY, element: <Categories /> },
-      { path: ROUTER_ADMIN.USER, element: <User /> }
+      { path: ROUTER_ADMIN.USER, element: <User /> },
+      { path: ROUTER_ADMIN.ORDER, element: <Order /> }
     ]
   }
 ];
