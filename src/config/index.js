@@ -39,7 +39,7 @@ export const sideBarOptions = [
 ]
 
 export const columnProduct = [
-    {key: 'index', label: '#'},
+    {key: 'index', label: ''},
     {key: 'image', label: 'Image'},
     {key: 'name', label: 'Name'},
     {key: 'price', label: 'Price'},
@@ -48,23 +48,23 @@ export const columnProduct = [
     {key: 'action', label: 'Action'}
 ]
 export const columnCategories = [
-    {key: 'index', label: '#'},
+    {key: 'index', label: ''},
     {key: 'title', label: 'Title'},
     {key: 'description', label: 'Description'},
     {key: 'action', label: 'Action'}
 ]
 
 export const columnOrder = [
-    {key: 'index', label: '#'},
-    {key: LIST_PRODUCT_NAME, label: 'Name'},
+    {key: 'index', label: ''},
+    {key: LIST_PRODUCT_NAME, label: 'Tên sản phẩm'},
     {key: 'email', label: 'Email'},
-    {key: 'payment', label: 'Payment'},
-    {key: 'status', label: 'Status'},
-    {key: 'totalPrice', label: 'Total'},
-    {key: 'action', label: 'Action'}
+    {key: 'payment', label: 'Thanh toán'},
+    {key: 'status', label: 'Trạng thái'},
+    {key: 'totalPrice', label: 'Tổng giá'},
+    {key: 'action', label: ''}
 ]
 export const columnUser = [
-    {key: 'index', label: '#'},
+    {key: 'index', label: ''},
     {key: 'name', label: 'Name'},
     {key: 'email', label: 'Email'},
     {key: 'password', label: 'Password'},
@@ -114,8 +114,15 @@ export const initStateUser = {
     username: "",
     password: ""
 }
-export const tabsOrder = [
+export const statusOrder = [
     { key: 'Đang xử lý', label: 'Đang xử lý' },
     { key: 'Đang vận chuyển', label: 'Đang vận chuyển' },
     { key: 'Hoàn thành', label: 'Hoàn thành' },
+]
+export const columnDetailProductOrder = [
+    {key: 'image', label: 'Image'},
+    {key: 'name', label: 'Name'},
+    {key: 'size', label: 'Kích cỡ'},
+    {key: 'quantity', label: 'Số lượng'},
+    {key: 'totalPrice', label: 'Tổng giá'},
 ]

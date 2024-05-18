@@ -26,11 +26,32 @@ const orderApi = createApi({
 								}
 						},
 						invalidatesTags: ['order']
-				})
+				}),
+				updateOrder: builder.mutation({
+						query: (body) => {
+								const {_id, ...payload} = body
+								return {
+										url: `${END_POINT_ORDER}/order/${_id}`,
+										method: 'PUT',
+										body: payload
+								}
+						},
+						invalidatesTags: ['order']
+				}),
+				getDetailOrder: builder.query({
+						query(id) {
+								return {
+										url: `${END_POINT_ORDER}/order/${id}`,
+										method: 'GET',
+								}
+						},
+				}),
 		})
 })
 export const {
 		useCreateNewOrderMutation,
-		useGetListOrderQuery
+		useGetListOrderQuery,
+		useUpdateOrderMutation,
+		useGetDetailOrderQuery
 } = orderApi
 export default orderApi;

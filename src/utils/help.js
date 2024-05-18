@@ -27,3 +27,20 @@ export const  getDataOnPage = (currentPage, dataTable, recordsPerPage) => {
     const lastIndex = firstIndex + recordsPerPage;
     return dataTable?.slice(firstIndex, lastIndex).map((item, index) => ({...item, index: index + 1}));
 }
+
+export const getNameAddressByCode = (code, address) => {
+    //handle get name city or district by code
+    const addressFind = address.find(item => item.code === code);
+    return addressFind ? addressFind.name : "";
+}
+
+export const convertToVietnameseDong = (amount) => {
+    //handle convert to viet nam dong
+    const parsedAmount  = parseFloat(amount)
+    if (!isNaN(amount)) {
+        const formattedAmount = parsedAmount .toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        return formattedAmount;
+    } else {
+        return '--';
+    }
+}

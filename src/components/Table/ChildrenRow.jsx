@@ -4,7 +4,7 @@ const ChildrenRow = ({dataMultipleRow}) => {
 		return (
 						<ul>
 								{dataMultipleRow?.map((item, index) => (
-										<li key={index}>{item.name}</li>
+										<li key={index}>{item.name} ({item.quantity})</li>
 								))}
 						</ul>
 		);

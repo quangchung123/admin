@@ -1,19 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import { useDeleteProductMutation, useGetListProductQuery } from "../../services/product";
-import TableList from "../../components/Table/TableList";
-import { columnProduct } from "../../config";
-import useModal from "../../hooks/useModal";
-import ModalProduct from "../../components/Modal/ModalProduct";
-import { useGetListCategoriesQuery } from "../../services/categories";
-import MyButton from "../../components/Elements/Button/MyButton";
-import styles from "./Admin.module.scss";
+import { useDeleteProductMutation, useGetListProductQuery } from "../../../services/product";
+import TableList from "../../../components/Table/TableList";
+import { columnProduct } from "../../../config";
+import useModal from "../../../hooks/useModal";
+import ModalProduct from "../../../components/Modal/ModalProduct";
+import { useGetListCategoriesQuery } from "../../../services/categories";
+import MyButton from "../../../components/Elements/Button/MyButton";
+import styles from "../Admin.module.scss";
 import {useNavigate} from "react-router-dom";
-import {ROUTER_ADMIN, ROUTER_INIT} from "../../config/constant";
-import InputSearch from "../../components/Elements/Search/InputSearch";
+import {ROUTER_ADMIN, ROUTER_INIT} from "../../../config/constant";
+import InputSearch from "../../../components/Elements/Search/InputSearch";
 
 const Product = () => {
 		const { data: productList } = useGetListProductQuery();
-		console.log(productList)
 		const { data: categoryList } = useGetListCategoriesQuery();
 		const { isShowing, toggle } = useModal();
 		const [deleteProduct] = useDeleteProductMutation();
@@ -55,7 +54,6 @@ const Product = () => {
 		const handleGoToDetailPage = (index) => {
 				navigate(`${ROUTER_INIT.ADMIN}/${ROUTER_ADMIN.PRODUCT}/${index}`)
 		}
-		
 		const listActionIconProduct = [
 				{
 						key: 1,

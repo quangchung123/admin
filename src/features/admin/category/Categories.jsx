@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import TableList from "../../components/Table/TableList";
-import {columnCategories} from "../../config";
-import useModal from "../../hooks/useModal";
-import {useDeleteCategoriesMutation, useGetListCategoriesQuery} from "../../services/categories";
-import ModalCategories from "../../components/Modal/ModalCategories";
-import styles from "./Admin.module.scss";
-import MyButton from "../../components/Elements/Button/MyButton";
+import TableList from "../../../components/Table/TableList";
+import {columnCategories} from "../../../config";
+import useModal from "../../../hooks/useModal";
+import {useDeleteCategoriesMutation, useGetListCategoriesQuery} from "../../../services/categories";
+import ModalCategories from "../../../components/Modal/ModalCategories";
+import styles from "../Admin.module.scss";
+import MyButton from "../../../components/Elements/Button/MyButton";
 
 const Categories = () => {
 		const { data } = useGetListCategoriesQuery();

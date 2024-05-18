@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import TableList from "../../components/Table/TableList";
-import {columnUser, tabsUser} from "../../config";
-import useModal from "../../hooks/useModal";
-import {useDeleteUserMutation, useGetListUserQuery} from "../../services/user";
-import styles from "./Admin.module.scss";
-import MyButton from "../../components/Elements/Button/MyButton";
-import ModalUser from "../../components/Modal/ModalUser";
-import MyTabs from "../../components/Elements/Tabs/MyTabs";
-import InputSearch from "../../components/Elements/Search/InputSearch";
+import TableList from "../../../components/Table/TableList";
+import {columnUser, tabsUser} from "../../../config";
+import useModal from "../../../hooks/useModal";
+import {useDeleteUserMutation, useGetListUserQuery} from "../../../services/user";
+import styles from "../Admin.module.scss";
+import MyButton from "../../../components/Elements/Button/MyButton";
+import ModalUser from "../../../components/Modal/ModalUser";
+import MyTabs from "../../../components/Elements/Tabs/MyTabs";
+import InputSearch from "../../../components/Elements/Search/InputSearch";
 
 const User = () => {
 		const { data } = useGetListUserQuery();

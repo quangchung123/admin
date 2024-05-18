@@ -17,5 +17,23 @@
         @apply border py-1.5 rounded px-5 border-slate-300 h-10;
       }
     }
+    .infoOrder {
+      @apply box-border py-2 px-4 flex justify-between;
+      .infoOrderGroup {
+        @apply flex;
+        .infoOrderIcon {
+          @apply rounded-full h-12 w-12 flex items-center justify-center mr-4 bg-[#d1e7dd];
+        }
+      }
+      .infoOrderDetail {
+        @apply flex flex-col;
+        .infoLabel {
+          @apply font-semibold;
+        }
+        .infoGroup {
+          @apply flex flex-col;
+        }
+      }
+    }
   }
 }

@@ -6,7 +6,7 @@ import {getDataOnPage} from "../../utils/help";
 import MenuAction from "../Elements/MenuActions/MenuAction";
 import ChildrenRow from "./ChildrenRow";
 
-const TableList = ({ dataTable, columnTable, listIconButton }) => {
+const TableList = ({ dataTable, columnTable, listIconButton= [] }) => {
 		const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
 		const recordsPerPage = RECORD_INIT;
 		const totalPage = Math.ceil(dataTable?.length / recordsPerPage);

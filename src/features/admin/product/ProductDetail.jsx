@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {useGetDetailProductQuery} from "../../services/product";
-import TableDetail from "../../components/Table/TableDetail";
-import {columnDetailProduct} from "../../config";
-import styles from "./Admin.module.scss";
-import MyButton from "../../components/Elements/Button/MyButton";
-import {ROUTER_ADMIN, ROUTER_INIT} from "../../config/constant";
+import {useGetDetailProductQuery} from "../../../services/product";
+import TableDetail from "../../../components/Table/TableDetail";
+import {columnDetailProduct} from "../../../config";
+import styles from "../Admin.module.scss";
+import MyButton from "../../../components/Elements/Button/MyButton";
+import {ROUTER_ADMIN, ROUTER_INIT} from "../../../config/constant";
 
 const ProductDetail = () => {
 		const { productId } =useParams();

@@ -12,10 +12,12 @@ const MenuAction = ({data, value}) => {
 								arrow={true}
 								className={"hover:bg-primary"}
 						>
-								{data.map(({title, handleRowAction}) => (
-										<MenuItem onClick={()=> handleRowAction(value._id)}>
-												{title}
-										</MenuItem>
+								{data.map(({title, handleRowAction}, index) => (
+										<div key={index}>
+												<MenuItem onClick={()=> handleRowAction(value._id)}>
+														{title}
+												</MenuItem>
+										</div>
 								))}
 						</Menu>
 				</div>
