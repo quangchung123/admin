@@ -6,7 +6,7 @@ import {getDataOnPage} from "../../utils/help";
 import MenuAction from "../Elements/MenuActions/MenuAction";
 import ChildrenRow from "./ChildrenRow";
 
-const TableList = ({ dataTable, columnTable, listIconButton= [] }) => {
+const TableList = ({ dataTable, columnTable, listIconButton= [] ,typeMain =''}) => {
 		const [currentPage, setCurrentPage] = useState(CURRENT_PAGE);
 		const recordsPerPage = RECORD_INIT;
 		const totalPage = Math.ceil(dataTable?.length / recordsPerPage);
@@ -30,7 +30,7 @@ const TableList = ({ dataTable, columnTable, listIconButton= [] }) => {
 																{column.key === 'image' ? (
 																		<img src={value[column.key]} alt="Product" className="w-16 h-auto" />
 																) : column.key === 'action' ? (
-																		<MenuAction value={value} data={listIconButton} />
+																		<MenuAction value={value} data={listIconButton} typeMain={typeMain}/>
 																): column.key === LIST_PRODUCT_NAME ? (
 																		<ChildrenRow
 																				dataMultipleRow={value[LIST_PRODUCT_NAME]}

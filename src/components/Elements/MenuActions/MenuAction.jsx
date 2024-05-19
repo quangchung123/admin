@@ -4,7 +4,8 @@ import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
 import styles from "./MenuAction.module..scss"
 
-const MenuAction = ({data, value}) => {
+const MenuAction = ({data, value, typeMain}) => {
+		console.log("typeMain", typeMain)
 		return (
 				<div className={styles.menus}>
 						<Menu

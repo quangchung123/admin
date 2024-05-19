@@ -42,7 +42,7 @@ const Order = () => {
 						</div>
 						<div className={styles.content}>
 								<MyTabs tabs={statusOrder} setTabSelected={setTabSelected} tabSelected={tabSelected} />
-								<TableList dataTable={dataFilterByTabName} columnTable={columnOrder} listIconButton={listActionIconOrder} />
+								<TableList dataTable={dataFilterByTabName} columnTable={columnOrder} listIconButton={listActionIconOrder} typeMain={'Order'}/>
 						</div>
 				</div>
 		);
