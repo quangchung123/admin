@@ -26,7 +26,10 @@ const ModalProduct = ({ isShowing, hide, rowData, isCreating, categoryList }) =>
 		const onSubmit = async (data) => {
 				try {
 						if (isCreating) {
-								await createNewProduct(data);
+								await createNewProduct({
+										...data,
+										countBought: 0
+								});
 						} else {
 								const payload = {
 										...data,

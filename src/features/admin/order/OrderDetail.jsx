@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "../Admin.module.scss";
 import MyButton from "../../../components/Elements/Button/MyButton";
 import {columnDetailProductOrder, statusOrder} from "../../../config";
@@ -17,6 +17,7 @@ const OrderDetail = () => {
 		const dataListProduct = data?.products.dataProduct;
 		const [valueSelectOption, setValueSelectOption] = useState('');
 		const navigate = useNavigate();
+		const [status, setStatus] = useState(data?.status);
 		const handleGoToPage = () => {
 				navigate(`${ROUTER_INIT.ADMIN}/${ROUTER_ADMIN.ORDER}`)
 		}
@@ -36,6 +37,13 @@ const OrderDetail = () => {
 						console.log(e)
 				}
 		}
+		
+		//check status order complete
+		const isComplete = status === statusOrder[2].label;
+		
+		useEffect(() => {
+				setStatus(data?.status)
+		}, [data]);
 		return (
 				<div className={styles.container}>
 						<div>
@@ -54,15 +62,17 @@ const OrderDetail = () => {
 										</div>
 										<div>
 												<label className="text-white font-bold text-lg mr-3">Trạng thái</label>
-												<select onChange={handleSelect}>
-														<option>{data?.status}</option>
+												<select onChange={handleSelect} disabled={isComplete}>
+														<option>{status}</option>
 														{statusOrder
 																.filter(status => status.label !== data?.status)
 																.map(status => (
 																<option key={status.key}>{status.label}</option>
 														))}
 												</select>
-												<button className="py-2 px-4 bg-[#198754] rounded text-white ml-4" onClick={handleChangeStatusOrder}>Lưu</button>
+												{
+														!isComplete && <button className="py-2 px-4 bg-[#198754] rounded text-white ml-4" onClick={handleChangeStatusOrder}>Lưu</button>
+												}
 										</div>
 								</header>
 								<div className={styles.infoOrder}>

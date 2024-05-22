@@ -45,6 +45,7 @@ const orderApi = createApi({
 										method: 'GET',
 								}
 						},
+						providesTags: ['order']
 				}),
 		})
 })
