@@ -10,6 +10,7 @@ import styles from "../Admin.module.scss";
 import {useNavigate} from "react-router-dom";
 import {ROUTER_ADMIN, ROUTER_INIT} from "../../../config/constant";
 import InputSearch from "../../../components/Elements/Search/InputSearch";
+import {notifyConfirmDelete} from "../../../utils/help";
 
 const Product = () => {
 		const { data: productList } = useGetListProductQuery();
@@ -45,8 +46,8 @@ const Product = () => {
 				toggle();
 				setIsCreating(true);
 		};
-		const handleDeleteRow = (index) => {
-				deleteProduct(index);
+		const handleDeleteRow = async (index) => {
+			await notifyConfirmDelete("Bạn có muốn xóa không?",  () => deleteProduct(index));
 		};
 		const handleSelect = (event) => {
 				setValueSelectOption(event.target.value);

@@ -6,6 +6,7 @@ import {useDeleteCategoriesMutation, useGetListCategoriesQuery} from "../../../s
 import ModalCategories from "../../../components/Modal/ModalCategories";
 import styles from "../Admin.module.scss";
 import MyButton from "../../../components/Elements/Button/MyButton";
+import {notifyConfirmDelete} from "../../../utils/help";
 
 const Categories = () => {
 		const { data } = useGetListCategoriesQuery();
@@ -27,8 +28,8 @@ const Categories = () => {
 				toggle();
 				setIsCreating(true);
 		};
-		const handleDeleteRow = (index) => {
-				deleteCategories(index);
+		const handleDeleteRow = async (index) => {
+				await notifyConfirmDelete("Bạn có muốn xóa không?",  () => deleteCategories(index));
 		};
 		const listActionIconProduct = [
 				{

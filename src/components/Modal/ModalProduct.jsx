@@ -4,6 +4,7 @@ import FormField from "../Elements/Form/FormField";
 import { useCreateNewProductMutation, useUpdateProductMutation } from "../../services/product";
 import MyModal from "./MyModal";
 import {initStateProduct} from "../../config";
+import {notifyConfirm} from "../../utils/help";
 
 const ModalProduct = ({ isShowing, hide, rowData, isCreating, categoryList }) => {
 		const { _id } = rowData;
@@ -30,12 +31,14 @@ const ModalProduct = ({ isShowing, hide, rowData, isCreating, categoryList }) =>
 										...data,
 										countBought: 0
 								});
+								notifyConfirm("Tạo sản phẩm thành công");
 						} else {
 								const payload = {
 										...data,
 										_id: _id
 								};
 								await updateProduct(payload);
+								notifyConfirm("Cập nhật sản phẩm thành công");
 						}
 						handleHideModal();
 				} catch (err) {

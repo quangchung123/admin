@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setUser} from "../../store/action/userAccountSlice";
 import {ROUTER_INIT} from "../../config/constant";
+import {notify} from "../../utils/help";
 
 const Login = ({children}) => {
     const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const Login = ({children}) => {
         const isExists = data.find((item) => item.email === dataPayload.email && item.password === dataPayload.password && item.title === dataPayload.title);
         if (isExists) {
             dispatch(setUser({user: payload}))
+            notify("Đăng nhập thành công")
             navigate(ROUTER_INIT.ADMIN);
         } else {
             setLoginError(true);

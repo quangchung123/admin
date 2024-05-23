@@ -7,7 +7,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useGetDetailOrderQuery, useUpdateOrderMutation} from "../../../services/order";
 import dataCities from "../../../config/address/cities.json";
 import dataDistricts from "../../../config/address/districts.json";
-import {convertToVietnameseDong, getNameAddressByCode} from "../../../utils/help";
+import {convertToVietnameseDong, getNameAddressByCode, notifyConfirm} from "../../../utils/help";
 import TableList from "../../../components/Table/TableList";
 
 const OrderDetail = () => {
@@ -32,6 +32,7 @@ const OrderDetail = () => {
 										status: valueSelectOption
 								}
 								await updateOrder(payload)
+								notifyConfirm("Cập nhật order thành công");
 						}
 				} catch (e) {
 						console.log(e)

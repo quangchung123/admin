@@ -8,6 +8,7 @@ import MyButton from "../../../components/Elements/Button/MyButton";
 import ModalUser from "../../../components/Modal/ModalUser";
 import MyTabs from "../../../components/Elements/Tabs/MyTabs";
 import InputSearch from "../../../components/Elements/Search/InputSearch";
+import {notifyConfirmDelete} from "../../../utils/help";
 
 const User = () => {
 		const { data } = useGetListUserQuery();
@@ -38,9 +39,9 @@ const User = () => {
 				toggle();
 				setIsCreating(true);
 		};
-		const handleDeleteRow = (index) => {
-				deleteUser(index);
-		};
+		const handleDeleteRow = async (index) => {
+				await notifyConfirmDelete("Bạn có muốn xóa không?",  () => deleteUser(index));
+			};
 		const listActionIconProduct = [
 				{
 						key: 1,

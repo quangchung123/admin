@@ -4,6 +4,7 @@ import FormField from "../Elements/Form/FormField";
 import {useCreateNewCategoriesMutation, useUpdateCategoriesMutation} from "../../services/categories";
 import MyModal from "./MyModal";
 import {initStateCategory} from "../../config";
+import {notifyConfirm} from "../../utils/help";
 
 const ModalCategories = ({ isShowing, hide, rowData, isCreating }) => {
 		const { _id } = rowData;
@@ -27,6 +28,7 @@ const ModalCategories = ({ isShowing, hide, rowData, isCreating }) => {
 				try {
 						if (isCreating) {
 								await createNewCategories(data);
+								notifyConfirm("Tạo nghành hàng thành công");
 						}
 						else {
 								const payload = {
@@ -34,6 +36,7 @@ const ModalCategories = ({ isShowing, hide, rowData, isCreating }) => {
 										_id: _id
 								};
 								await updateCategories(payload);
+								notifyConfirm("Cập nhật nghành hàng thành công");
 						}
 						handleHideModal();
 				} catch (err) {

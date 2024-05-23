@@ -4,6 +4,7 @@ import FormField from "../Elements/Form/FormField";
 import {useCreateNewUserMutation, useUpdateUserMutation} from "../../services/user";
 import MyModal from "./MyModal";
 import {initStateUser, titleNameList} from "../../config";
+import {notifyConfirm} from "../../utils/help";
 
 const ModalUser = ({ isShowing, hide, rowData, isCreating }) => {
 		const { _id } = rowData;
@@ -25,6 +26,7 @@ const ModalUser = ({ isShowing, hide, rowData, isCreating }) => {
 				try {
 						if (isCreating) {
 								await createNewUser(data);
+								notifyConfirm("Tạo người dùng thành công");
 						}
 						else {
 								const payload = {
@@ -32,6 +34,7 @@ const ModalUser = ({ isShowing, hide, rowData, isCreating }) => {
 										_id: _id
 								};
 								await updateUser(payload);
+								notifyConfirm("Cập nhật người dùng thành công");
 						}
 						handleHideModal();
 				} catch (err) {
