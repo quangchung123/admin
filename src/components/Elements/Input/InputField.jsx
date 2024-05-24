@@ -10,7 +10,7 @@ const InputField = ({ name, type, placeholder, control, errors, inputType, optio
         return (
           <select {...field} value={field.value} onChange={(e) => field.onChange(e.target.value)} required={true}>
             <option>All</option>
-            {options.map((option, index) => (
+            {options?.map((option, index) => (
               <option key={index} value={option.title}>
                 {option.title}
               </option>
@@ -18,7 +18,7 @@ const InputField = ({ name, type, placeholder, control, errors, inputType, optio
           </select>
         );
       default:
-        return <input type={type} placeholder={placeholder} {...field} value={field.value} required={true} />;
+        return <input type={type} placeholder={placeholder} {...field} value={field.value} required={true} min={0} />;
     }
   };
   
